@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Заполните данные"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ФИО" />
+
+        <EditText
+            android:id="@+id/etGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Номер группы" />
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Возраст"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/etGrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Желаемая оценка" />
+
+        <!-- Декларативный переход: android:onClick -->
+        <Button
+            android:id="@+id/btnDeclarative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Открыть (декларативно)"
+            android:onClick="onDeclarativeOpen"/>
+
+        <!-- Программный переход -->
+        <Button
+            android:id="@+id/btnProgrammatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Открыть (программно)" />
+
+    </LinearLayout>
+</ScrollView>
