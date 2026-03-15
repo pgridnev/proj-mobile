@@ -9,27 +9,27 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editName, editSurname;
-    private Button btnGoToSecond;
+    private EditText editFirstname, editLastname;
+    private Button btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_linear);
+        setContentView(R.layout.activity_main);
 
-        editName = findViewById(R.id.edit_name);
-        editSurname = findViewById(R.id.edit_surname);
-        btnGoToSecond = findViewById(R.id.btn_submit);
+        editFirstname = findViewById(R.id.edit_firstname);
+        editLastname = findViewById(R.id.edit_lastname);
+        btnNext = findViewById(R.id.btn_next);
 
-        btnGoToSecond.setOnClickListener(new View.OnClickListener() {
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = editName.getText().toString();
-                String surname = editSurname.getText().toString();
+                String firstname = editFirstname.getText().toString();
+                String lastname = editLastname.getText().toString();
 
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("name", name);
-                intent.putExtra("surname", surname);
+                intent.putExtra("firstname", firstname);
+                intent.putExtra("lastname", lastname);
                 startActivity(intent);
             }
         });

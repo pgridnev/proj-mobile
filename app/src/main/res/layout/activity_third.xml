@@ -5,31 +5,31 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tv_firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/tv_lastname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="4dp"/>
-
     <EditText
-        android:id="@+id/edit_subject"
+        android:id="@+id/edit_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Предмет"
-        android:layout_marginTop="16dp"/>
+        android:hint="День недели"/>
+
+    <EditText
+        android:id="@+id/edit_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Время"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/edit_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Комментарий"
+        android:layout_marginTop="8dp"/>
 
     <Button
-        android:id="@+id/btn_enter_info"
+        android:id="@+id/btn_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ввести информацию"
+        android:text="OK"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
 
