@@ -31,7 +31,6 @@ public class SecondActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Возвращаем результат (например, подтверждение)
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("result", "Данные получены");
                 setResult(RESULT_OK, resultIntent);

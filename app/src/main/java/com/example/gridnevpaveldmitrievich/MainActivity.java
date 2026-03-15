@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // используйте любой из созданных layout
+        setContentView(R.layout.activity_linear);
 
         editName = findViewById(R.id.edit_name);
         editSurname = findViewById(R.id.edit_surname);
