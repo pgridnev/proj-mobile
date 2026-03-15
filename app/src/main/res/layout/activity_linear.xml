@@ -6,23 +6,30 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"/>
+        android:text="LinearLayout (Vertical)"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/tv_surname"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:hint="Введите имя"/>
+
+    <EditText
+        android:id="@+id/edit_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите фамилию"
         android:layout_marginTop="8dp"/>
 
     <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Вернуться"
+        android:text="Отправить"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
 

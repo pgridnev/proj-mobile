@@ -1,41 +1,42 @@
 package com.example.gridnevpaveldmitrievich;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
-    private static final String TAG = "MyAppLifecycle";
+
+    private TextView tvName, tvSurname;
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "SecondActivity: onCreate()");
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_second); // создайте свой layout
 
-        TextView tvName = findViewById(R.id.tvName);
-        TextView tvGroup = findViewById(R.id.tvGroup);
-        TextView tvAge = findViewById(R.id.tvAge);
-        TextView tvGrade = findViewById(R.id.tvGrade);
+        tvName = findViewById(R.id.tv_name);
+        tvSurname = findViewById(R.id.tv_surname);
+        btnBack = findViewById(R.id.btn_back);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String name = extras.getString("EXTRA_NAME", "");
-            String group = extras.getString("EXTRA_GROUP", "");
-            String age = extras.getString("EXTRA_AGE", "");
-            String grade = extras.getString("EXTRA_GRADE", "");
+        // Получаем данные из Intent
+        String name = getIntent().getStringExtra("name");
+        String surname = getIntent().getStringExtra("surname");
 
-            tvName.setText("ФИО: " + name);
-            tvGroup.setText("Группа: " + group);
-            tvAge.setText("Возраст: " + age);
-            tvGrade.setText("Желаемая оценка: " + grade);
-        }
+        tvName.setText("Имя: " + name);
+        tvSurname.setText("Фамилия: " + surname);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Возвращаем результат (например, подтверждение)
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("result", "Данные получены");
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        });
     }
-
-    @Override protected void onStart() { super.onStart(); Log.d(TAG, "SecondActivity: onStart()"); }
-    @Override protected void onResume() { super.onResume(); Log.d(TAG, "SecondActivity: onResume()"); }
-    @Override protected void onPause() { super.onPause(); Log.d(TAG, "SecondActivity: onPause()"); }
-    @Override protected void onStop() { super.onStop(); Log.d(TAG, "SecondActivity: onStop()"); }
-    @Override protected void onDestroy() { super.onDestroy(); Log.d(TAG, "SecondActivity: onDestroy()"); }
 }
