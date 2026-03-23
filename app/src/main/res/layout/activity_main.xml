@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/edit_firstname"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Имя"/>
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edit_lastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Фамилия"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Выберите задание"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
 
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/btn_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Список категорий (ListView + переход)" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. RecyclerView (картинка + текст)" />
+
+        <Button
+            android:id="@+id/btn_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. ScrollView (скроллинг + EditText внизу)" />
+
+        <Button
+            android:id="@+id/btn_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Spinner (выпадающий список)" />
+
+        <Button
+            android:id="@+id/btn_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Navigation Drawer (боковая панель)" />
+
+        <Button
+            android:id="@+id/btn_bottombar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. BottomBar + ActionBar" />
+
+    </LinearLayout>
+</ScrollView>

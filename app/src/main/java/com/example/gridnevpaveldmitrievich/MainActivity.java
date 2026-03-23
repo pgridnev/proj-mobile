@@ -1,36 +1,64 @@
-package com.example.gridnevpaveldmitrievich;
+package com.example.gridnevpaveldmitrievich; // замените на свой пакет
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    private EditText editFirstname, editLastname;
-    private Button btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editFirstname = findViewById(R.id.edit_firstname);
-        editLastname = findViewById(R.id.edit_lastname);
-        btnNext = findViewById(R.id.btn_next);
+        Button btnCategories = findViewById(R.id.btn_categories);
+        Button btnRecycler = findViewById(R.id.btn_recycler);
+        Button btnScroll = findViewById(R.id.btn_scroll);
+        Button btnSpinner = findViewById(R.id.btn_spinner);
+        Button btnDrawer = findViewById(R.id.btn_drawer);
+        Button btnBottomBar = findViewById(R.id.btn_bottombar);
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
+        btnCategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String firstname = editFirstname.getText().toString();
-                String lastname = editLastname.getText().toString();
+                startActivity(new Intent(MainActivity.this, CategoryActivity.class));
+            }
+        });
 
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("firstname", firstname);
-                intent.putExtra("lastname", lastname);
-                startActivity(intent);
+        btnRecycler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RecyclerActivity.class));
+            }
+        });
+
+        btnScroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ScrollActivity.class));
+            }
+        });
+
+        btnSpinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SpinnerActivity.class));
+            }
+        });
+
+        btnDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainDrawerActivity.class));
+            }
+        });
+
+        btnBottomBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SecondActivityWithBottomBar.class));
             }
         });
     }
