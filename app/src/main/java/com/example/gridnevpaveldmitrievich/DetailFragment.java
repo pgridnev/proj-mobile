@@ -19,7 +19,7 @@ public class DetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        detailsText = view.findViewById(R.id.detailsText);
+        detailsText = view.findViewById(R.id.detailText);
         return view;
     }
 

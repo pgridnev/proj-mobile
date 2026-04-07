@@ -16,10 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText editName, editCompany, editAge;
     private TextView textResult;
+
 
     private ActivityResultLauncher<Intent> resultLauncher;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnSendObject = findViewById(R.id.btnSendObject);
         Button btnStartForResult = findViewById(R.id.btnStartForResult);
         Button btnThirdActivity = findViewById(R.id.btnThirdActivity);
+
 
         resultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+
         btnSendData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnSendObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,11 +86,12 @@ public class MainActivity extends AppCompatActivity {
 
                 User user = new User(name, company, age);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("user_serializable", (Parcelable) user);   // Serializable
+                intent.putExtra("user_serializable", (Serializable) user);   // Serializable
                 intent.putExtra("user_parcelable", (Parcelable) user);     // Parcelable
                 startActivity(intent);
             }
         });
+
 
         btnStartForResult.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 resultLauncher.launch(intent);
             }
         });
+
 
         btnThirdActivity.setOnClickListener(new View.OnClickListener() {
             @Override
