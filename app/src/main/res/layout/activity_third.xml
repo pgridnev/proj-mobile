@@ -3,34 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/edit_day"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="День недели"/>
-
-    <EditText
-        android:id="@+id/edit_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Время"
-        android:layout_marginTop="8dp"/>
-
-    <EditText
-        android:id="@+id/edit_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Комментарий"
-        android:layout_marginTop="8dp"/>
-
-    <Button
-        android:id="@+id/btn_ok"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        android:text="Это ThirdActivity"
+        android:textSize="24sp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnToFourth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Перейти к FourthActivity" />
 
 </LinearLayout>

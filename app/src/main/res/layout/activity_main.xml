@@ -10,49 +10,68 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Введите данные пользователя"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выберите задание"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="24dp"/>
+            android:hint="Имя"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Компания"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Возраст"
+            android:inputType="number" />
 
         <Button
-            android:id="@+id/btn_categories"
+            android:id="@+id/btnSendData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. Список категорий (ListView + переход)" />
+            android:text="Передать простые данные"
+            android:layout_marginTop="8dp" />
 
         <Button
-            android:id="@+id/btn_recycler"
+            android:id="@+id/btnSendObject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2. RecyclerView (картинка + текст)" />
+            android:text="Передать объект (Serializable / Parcelable)"
+            android:layout_marginTop="8dp" />
 
         <Button
-            android:id="@+id/btn_scroll"
+            android:id="@+id/btnStartForResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3. ScrollView (скроллинг + EditText внизу)" />
+            android:text="Запустить для получения результата"
+            android:layout_marginTop="8dp" />
 
         <Button
-            android:id="@+id/btn_spinner"
+            android:id="@+id/btnThirdActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4. Spinner (выпадающий список)" />
+            android:text="Перейти к ThirdActivity (стек)"
+            android:layout_marginTop="8dp" />
 
-        <Button
-            android:id="@+id/btn_drawer"
+        <TextView
+            android:id="@+id/textResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="5. Navigation Drawer (боковая панель)" />
-
-        <Button
-            android:id="@+id/btn_bottombar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="6. BottomBar + ActionBar" />
+            android:text="Результат: "
+            android:textSize="14sp"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </ScrollView>

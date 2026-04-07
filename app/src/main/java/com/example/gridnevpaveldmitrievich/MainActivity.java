@@ -1,64 +1,105 @@
-package com.example.gridnevpaveldmitrievich; // замените на свой пакет
+package com.example.gridnevpaveldmitrievich;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity {
+
+    private EditText editName, editCompany, editAge;
+    private TextView textResult;
+
+    private ActivityResultLauncher<Intent> resultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnCategories = findViewById(R.id.btn_categories);
-        Button btnRecycler = findViewById(R.id.btn_recycler);
-        Button btnScroll = findViewById(R.id.btn_scroll);
-        Button btnSpinner = findViewById(R.id.btn_spinner);
-        Button btnDrawer = findViewById(R.id.btn_drawer);
-        Button btnBottomBar = findViewById(R.id.btn_bottombar);
+        editName = findViewById(R.id.editName);
+        editCompany = findViewById(R.id.editCompany);
+        editAge = findViewById(R.id.editAge);
+        textResult = findViewById(R.id.textResult);
 
-        btnCategories.setOnClickListener(new View.OnClickListener() {
+        Button btnSendData = findViewById(R.id.btnSendData);
+        Button btnSendObject = findViewById(R.id.btnSendObject);
+        Button btnStartForResult = findViewById(R.id.btnStartForResult);
+        Button btnThirdActivity = findViewById(R.id.btnThirdActivity);
+
+        resultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            if (data != null) {
+                                String message = data.getStringExtra("RESULT_MESSAGE");
+                                textResult.setText("Результат: " + message);
+                            }
+                        } else {
+                            textResult.setText("Операция отменена");
+                        }
+                    }
+                }
+        );
+
+        btnSendData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CategoryActivity.class));
+                String name = editName.getText().toString();
+                String company = editCompany.getText().toString();
+                int age = Integer.parseInt(editAge.getText().toString());
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("company", company);
+                intent.putExtra("age", age);
+                startActivity(intent);
             }
         });
 
-        btnRecycler.setOnClickListener(new View.OnClickListener() {
+        btnSendObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RecyclerActivity.class));
+                String name = editName.getText().toString();
+                String company = editCompany.getText().toString();
+                int age = Integer.parseInt(editAge.getText().toString());
+
+                User user = new User(name, company, age);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("user_serializable", (Parcelable) user);   // Serializable
+                intent.putExtra("user_parcelable", (Parcelable) user);     // Parcelable
+                startActivity(intent);
             }
         });
 
-        btnScroll.setOnClickListener(new View.OnClickListener() {
+        btnStartForResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ScrollActivity.class));
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("request_result", true);
+                resultLauncher.launch(intent);
             }
         });
 
-        btnSpinner.setOnClickListener(new View.OnClickListener() {
+        btnThirdActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SpinnerActivity.class));
-            }
-        });
-
-        btnDrawer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainDrawerActivity.class));
-            }
-        });
-
-        btnBottomBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SecondActivityWithBottomBar.class));
+                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                startActivity(intent);
             }
         });
     }

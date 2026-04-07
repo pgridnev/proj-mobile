@@ -6,31 +6,26 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tv_firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/tv_lastname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="4dp"/>
-
-    <EditText
-        android:id="@+id/edit_subject"
+        android:id="@+id/textReceived"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Предмет"
-        android:layout_marginTop="16dp"/>
+        android:text="Здесь будут полученные данные"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:background="#f0f0f0" />
 
     <Button
-        android:id="@+id/btn_enter_info"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ввести информацию"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        android:text="OK – вернуться с результатом"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отмена – вернуться без результата"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>

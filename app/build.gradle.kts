@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.androidx.activity)
     implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation("androidx.fragment:fragment:1.6.2")
     implementation("com.google.android.material:material:1.9.0")
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
